@@ -1,0 +1,172 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* EduSphere Design System
+   Primary: #A78BFA Lavender → 255 85% 70%
+   Secondary: #F59E0B Gold → 38 92% 50%
+   Background: #F5F3FF Soft Lavender → 252 100% 97%
+   Dark: #1E1535 → 260 43% 14%
+   Accent green: #10B981 → 160 84% 39%
+*/
+
+@layer base {
+  :root {
+    --background: 252 100% 97%;
+    --foreground: 260 43% 14%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 260 43% 14%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 260 43% 14%;
+
+    --primary: 255 85% 70%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 255 95% 85%;
+    --primary-soft: 255 85% 96%;
+
+    --secondary: 38 92% 50%;
+    --secondary-foreground: 260 43% 14%;
+    --secondary-soft: 38 92% 95%;
+
+    --muted: 252 60% 95%;
+    --muted-foreground: 260 15% 45%;
+
+    --accent: 160 84% 39%;
+    --accent-foreground: 0 0% 100%;
+    --accent-soft: 160 84% 95%;
+
+    --pink: 330 81% 60%;
+    --blue: 217 91% 60%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 262 50% 92%;
+    --input: 262 50% 92%;
+    --ring: 262 83% 58%;
+
+    --radius: 1rem;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(255 85% 70%), hsl(265 90% 75%));
+    --gradient-gold: linear-gradient(135deg, hsl(38 92% 50%), hsl(45 95% 60%));
+    --gradient-saffron: linear-gradient(135deg, hsl(28 95% 55%), hsl(38 92% 50%) 50%, hsl(160 84% 39%));
+    --gradient-hero: linear-gradient(135deg, hsl(252 100% 97%) 0%, hsl(255 85% 96%) 50%, hsl(38 92% 95%) 100%);
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -2px hsl(255 85% 70% / 0.12);
+    --shadow-card: 0 8px 30px -8px hsl(255 85% 70% / 0.25);
+    --shadow-glow: 0 10px 40px -10px hsl(255 85% 70% / 0.5);
+    --shadow-gold: 0 10px 40px -10px hsl(38 92% 50% / 0.4);
+
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 260 43% 14%;
+    --sidebar-primary: 262 83% 58%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 252 100% 97%;
+    --sidebar-accent-foreground: 262 83% 58%;
+    --sidebar-border: 262 50% 92%;
+    --sidebar-ring: 262 83% 58%;
+  }
+
+  .dark {
+    --background: 260 43% 8%;
+    --foreground: 252 100% 97%;
+    --card: 260 43% 12%;
+    --card-foreground: 252 100% 97%;
+    --popover: 260 43% 12%;
+    --popover-foreground: 252 100% 97%;
+    --primary: 270 95% 70%;
+    --primary-foreground: 260 43% 14%;
+    --secondary: 38 92% 50%;
+    --secondary-foreground: 260 43% 14%;
+    --muted: 260 30% 18%;
+    --muted-foreground: 252 30% 70%;
+    --accent: 160 84% 50%;
+    --accent-foreground: 260 43% 14%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 260 30% 20%;
+    --input: 260 30% 20%;
+    --ring: 270 95% 70%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    font-family: 'Poppins', system-ui, sans-serif;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Poppins', system-ui, sans-serif;
+    font-feature-settings: 'cv11', 'ss01';
+  }
+}
+
+@layer utilities {
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+  .gradient-gold {
+    background: var(--gradient-gold);
+  }
+  .gradient-saffron {
+    background: var(--gradient-saffron);
+  }
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+  .text-gradient-primary {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .text-gradient-gold {
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+  .shadow-gold {
+    box-shadow: var(--shadow-gold);
+  }
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+  /* Subtle mandala pattern */
+  .mandala-bg {
+    background-image:
+      radial-gradient(circle at 20% 20%, hsl(var(--primary) / 0.08) 0%, transparent 40%),
+      radial-gradient(circle at 80% 30%, hsl(var(--secondary) / 0.08) 0%, transparent 40%),
+      radial-gradient(circle at 50% 80%, hsl(var(--accent) / 0.06) 0%, transparent 40%),
+      url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%237C3AED' stroke-opacity='0.05' stroke-width='1'%3E%3Ccircle cx='60' cy='60' r='50'/%3E%3Ccircle cx='60' cy='60' r='35'/%3E%3Ccircle cx='60' cy='60' r='20'/%3E%3Cpath d='M60 10 L60 110 M10 60 L110 60 M25 25 L95 95 M95 25 L25 95'/%3E%3C/g%3E%3C/svg%3E");
+  }
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary) / 0.3);
+    border-radius: 3px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+}
