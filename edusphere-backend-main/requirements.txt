@@ -1,0 +1,36 @@
+# ── Web server ────────────────────────────────────────────────────────────────
+flask==3.0.3
+flask-cors==4.0.1
+gunicorn
+
+# ── Database ──────────────────────────────────────────────────────────────────
+pymongo==4.8.0
+
+# ── Auth & Security ───────────────────────────────────────────────────────────
+python-dotenv==1.0.1
+bcrypt==4.2.0
+PyJWT==2.9.0
+
+# ── AI / LLM ──────────────────────────────────────────────────────────────────
+groq==0.13.0
+
+# ── Emotion Detection Stack ───────────────────────────────────────────────────
+# Face detection: MediaPipe (fast, accurate, works at angles & varying lighting)
+mediapipe==0.10.14
+
+# Image processing
+opencv-python-headless==4.10.0.84
+Pillow
+numpy>=1.24.3
+
+# Emotion model: HuggingFace ViT (Vision Transformer)
+# Model: dima806/facial_emotions_image_detection
+#   - ViT-base-patch16-224 fine-tuned on FER+ + AffectNet
+#   - ~91% accuracy (vs ~64% for the old Mini-Xception/FER library)
+transformers>=4.40.0
+torch>=2.2.0
+accelerate>=0.27.0   # speeds up HuggingFace model loading
+
+# ── Misc ──────────────────────────────────────────────────────────────────────
+pandas==2.0.3
+setuptools
